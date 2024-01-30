@@ -1,17 +1,16 @@
 package Datos;
 
 public interface Esqueleto {
-    EulerTO ingreso();
+    EulerTO ingress();
 
-    double[] ejecucion_t(double inicial, int N, double h);
+    double[] execution_t(double initial, int N, double h);
 
-    double[][] ejecucion_matriz(double h, String funcionA,String funcionB,double inicialx,double inicialy,double N);
+    double[][] execution_matrix(double h, String functionA, String functionB, double initialX, double initialY, double N);
 
-    void  salida(double []t,double[][]xy, int N);
+    void print(double[] t, double[][] xy, int N);
 
-    void grafica(String name, double [][]xy, double []t, String funcionA, String funcionB);
+    void graffiti(String name, double[][] xy, double[] t, String functionA, String functionB);
 
-    double funcion(String funcion, double x, double y);
+    double function(String function, double x, double y);
     
-
 }

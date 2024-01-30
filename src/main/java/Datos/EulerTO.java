@@ -2,12 +2,16 @@ package Datos;
 
 public class EulerTO {
 
-    private double h; private String funcionA; private String funcionB;
-    private double x1;private double y1;private int rangoI;
-    private int rangoF;
+    private double h;
+    private String functionA;
+    private String functionB;
+    private double x1;
+    private double y1;
+    private int rangeI;
+    private int rangeF;
 
     public int getN() {
-        return (int) ((this.rangoF-this.rangoI)/this.h);
+        return (int) ((this.rangeF - this.rangeI) / this.h);
     }
 
     public double getH() {
@@ -18,20 +22,20 @@ public class EulerTO {
         this.h = h;
     }
 
-    public String getFuncionA() {
-        return funcionA;
+    public String getFunctionA() {
+        return functionA;
     }
 
-    public void setFuncionA(String funcionA) {
-        this.funcionA = funcionA;
+    public void setFunctionA(String functionA) {
+        this.functionA = functionA;
     }
 
-    public String getFuncionB() {
-        return funcionB;
+    public String getFunctionB() {
+        return functionB;
     }
 
-    public void setFuncionB(String funcionB) {
-        this.funcionB = funcionB;
+    public void setFunctionB(String functionB) {
+        this.functionB = functionB;
     }
 
     public double getX1() {
@@ -50,16 +54,16 @@ public class EulerTO {
         this.y1 = y1;
     }
 
-    public int getRangoI() {
-        return rangoI;
+    public int getRangeI() {
+        return rangeI;
     }
 
-    public void setRangoI(int rangoI) {
-        this.rangoI = rangoI;
+    public void setRangeI(int rangeI) {
+        this.rangeI = rangeI;
     }
 
-    public void setRangoF(int rangoF) {
-        this.rangoF = rangoF;
+    public void setRangeF(int rangeF) {
+        this.rangeF = rangeF;
     }
 
 }
