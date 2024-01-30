@@ -1,5 +1,8 @@
 package Datos;
 
+import lombok.Setter;
+
+@Setter
 public class EulerTO {
 
     private double h;
@@ -18,52 +21,24 @@ public class EulerTO {
         return h;
     }
 
-    public void setH(double h) {
-        this.h = h;
-    }
-
     public String getFunctionA() {
         return functionA;
-    }
-
-    public void setFunctionA(String functionA) {
-        this.functionA = functionA;
     }
 
     public String getFunctionB() {
         return functionB;
     }
 
-    public void setFunctionB(String functionB) {
-        this.functionB = functionB;
-    }
-
     public double getX1() {
         return x1;
-    }
-
-    public void setX1(double x1) {
-        this.x1 = x1;
     }
 
     public double getY1() {
         return y1;
     }
 
-    public void setY1(double y1) {
-        this.y1 = y1;
-    }
-
     public int getRangeI() {
         return rangeI;
-    }
-
-    public void setRangeI(int rangeI) {
-        this.rangeI = rangeI;
-    }
-
-    public void setRangeF(int rangeF) {
-        this.rangeF = rangeF;
     }
 
 }
