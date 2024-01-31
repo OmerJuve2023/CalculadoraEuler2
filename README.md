@@ -177,6 +177,14 @@ iteración    T            X            Y
         <version>1.18.30</version>
         <scope>provided</scope>
     </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+
+
 </dependencies>
 ```
 
