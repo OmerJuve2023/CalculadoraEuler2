@@ -1,6 +1,6 @@
 package Dao;
 
-import Datos.Esqueleto;
+import interfaces.Esqueleto;
 import Datos.EulerTO;
 import org.math.plot.Plot2DPanel;
 import org.nfunk.jep.JEP;

@@ -1,4 +1,6 @@
-package Datos;
+package interfaces;
+
+import Datos.EulerTO;
 
 public interface Esqueleto {
     EulerTO ingress();
