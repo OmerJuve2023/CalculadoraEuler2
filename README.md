@@ -12,9 +12,8 @@ tabular como gráfica.
 - [Formatos de Entrada](#Formato-de-entrada)
 - [Ejemplo de Entrada](#Ejemplo-de-entrada)
 - [Ejemplo de salida](#ejemplo-de-salida)
-- [Configuración de la Base de Datos](#configuración-de-la-base-de-datos)
-- [Registro](#registro)
-- [Ejecutar Pruebas](#ejecutar-pruebas)
+- [Dependencias](#dependencias)
+- [Nota](#nota)
 
 ## Requisitos Previos
 
