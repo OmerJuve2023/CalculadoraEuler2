@@ -1,8 +1,10 @@
 package Datos;
 
+import lombok.Getter;
 import lombok.Setter;
 
 @Setter
+@Getter
 public class EulerTO {
 
     private double h;
@@ -16,29 +18,5 @@ public class EulerTO {
     public int getN() {
         return (int) ((this.rangeF - this.rangeI) / this.h);
     }
-
-    public double getH() {
-        return h;
-    }
-
-    public String getFunctionA() {
-        return functionA;
-    }
-
-    public String getFunctionB() {
-        return functionB;
-    }
-
-    public double getX1() {
-        return x1;
-    }
-
-    public double getY1() {
-        return y1;
-    }
-
-    public int getRangeI() {
-        return rangeI;
-    }
-
+    
 }

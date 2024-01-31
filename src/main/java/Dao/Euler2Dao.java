@@ -4,6 +4,7 @@ import Datos.Esqueleto;
 import Datos.EulerTO;
 import org.math.plot.Plot2DPanel;
 import org.nfunk.jep.JEP;
+
 import javax.swing.*;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -13,21 +14,21 @@ public class Euler2Dao implements Esqueleto {
     public EulerTO ingress() {
         EulerTO euler = new EulerTO();
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese h:\t");
+        print("Income h:\t");
         euler.setH(scanner.nextDouble());
-        System.out.print("ingrese Funcion A:\t");
+        print("Income Function A:\t");
         euler.setFunctionA(scanner.next());
-        System.out.print("Ingrese Funcion B:\t");
+        print("Income Function B:\t");
         euler.setFunctionB(scanner.next());
-        System.out.print("Ingrese x1:\t");
+        print("Income x1:\t");
         euler.setX1(scanner.nextDouble());
-        System.out.print("Ingrese y1:\t");
+        print("Income y1:\t");
         euler.setY1(scanner.nextDouble());
-        System.out.print("Ingrese rango Inicial:\t");
+        print("Income init range:\t");
         euler.setRangeI(scanner.nextInt());
-        System.out.print("Ingrese rango Final:\t");
+        print("Income final range:\t");
         euler.setRangeF(scanner.nextInt());
-        System.out.println("----------------------------");
+        println("----------------------------");
         return euler;
     }
 
@@ -55,12 +56,12 @@ public class Euler2Dao implements Esqueleto {
 
     @Override
     public void print(double[] t, double[][] xy, int N) {
-        DecimalFormat formato = new DecimalFormat("##00.000000");
+        DecimalFormat format = new DecimalFormat("##00.000000");
         DecimalFormat form = new DecimalFormat("#0.00");
-        System.out.println("iteration" + "\t" + "\t" + "T" + "\t" + "\t" + "\t" + "X" + "\t" + "\t" + "\t" + "Y");
+        println("iteration" + "\t" + "\t" + "T" + "\t" + "\t" + "\t" + "X" + "\t" + "\t" + "\t" + "Y");
         for (int i = 0; i < N; i++) {
-            System.out.println("\t" + (i + 1) + "\t" + "|\t" + "\t" + form.format(t[i]) +
-                    "\t" + "|\t" + formato.format(xy[i][0]) + "\t" + "|\t" + formato.format(xy[i][1]));
+            println("\t" + (i + 1) + "\t" + "|\t" + "\t" + form.format(t[i]) +
+                    "\t" + "|\t" + format.format(xy[i][0]) + "\t" + "|\t" + format.format(xy[i][1]));
         }
     }
 
@@ -73,20 +74,19 @@ public class Euler2Dao implements Esqueleto {
             y[i] = xy[i][1];
         }
 
-        JFrame panel = new JFrame("grafica Euler con Dos Ecuaciones");
+        JFrame panel = new JFrame("Euler graph with two equations");
         panel.setBounds(370, 10, 600, 550);
         panel.setLocationRelativeTo(null);
         panel.setVisible(true);
         panel.setResizable(false);
 
-        Plot2DPanel grafica = new Plot2DPanel();
-        grafica.setBounds(370, 10, 600, 550);
-        grafica.addLegend("SOUTH");
-        //grafica.removeAllPlots();
-        grafica.addLinePlot(functionA, t, x);
-        grafica.addLinePlot(functionB, t, y);
-        grafica.setVisible(true);
-        panel.add(grafica);
+        Plot2DPanel graffiti = new Plot2DPanel();
+        graffiti.setBounds(370, 10, 600, 550);
+        graffiti.addLegend("SOUTH");
+        graffiti.addLinePlot(functionA, t, x);
+        graffiti.addLinePlot(functionB, t, y);
+        graffiti.setVisible(true);
+        panel.add(graffiti);
 
     }
 
@@ -101,31 +101,39 @@ public class Euler2Dao implements Esqueleto {
         return jep.getValue();
     }
 
-    public double[][] salida_matriz(double h, String funcionA, String funcionB, double inicialx, double inicialy, double N, double inicialI) {
-        DecimalFormat format=new DecimalFormat("####,######");
+    public double[][] closed_matrix(double h, String functionA, String functionB, double initX, double initY, double N, double initI) {
+        DecimalFormat format = new DecimalFormat("####,######");
         double[] t = new double[(int) N];
-        t[0] = inicialI;
+        t[0] = initI;
         double[][] array = new double[(int) N][2];
-        array[0][0] = inicialx;
-        array[0][1] = inicialy;
+        array[0][0] = initX;
+        array[0][1] = initY;
         for (int i = 1; i < N; i++) {
-            StringBuilder txt=new StringBuilder();
+            StringBuilder txt = new StringBuilder();
             t[i] = t[i - 1] + h;
-            txt.append("Iteracion nº:").append(i).append("\t\t").append("t: ").append(t[i]).append("\n");
-            array[i][0] = array[i - 1][0] + (h * function(funcionA, array[i - 1][0], array[i - 1][1]));
-            double fx1= Double.parseDouble(format.format(array[i-1][0]));
-            double fy2=Double.parseDouble(format.format(array[i-1][1]));
+            txt.append("Iteration nº:").append(i).append("\t\t").append("t: ").append(t[i]).append("\n");
+            array[i][0] = array[i - 1][0] + (h * function(functionA, array[i - 1][0], array[i - 1][1]));
+            double fx1 = Double.parseDouble(format.format(array[i - 1][0]));
+            double fy2 = Double.parseDouble(format.format(array[i - 1][1]));
             String fx = String.valueOf(fx1);
             String fy = String.valueOf(fy2);
 
-            txt.append("x(").append(i + 1).append(")=").append(array[i - 1][0]).append("+").append(h).append("*(").append(funcionA.replace("x", fx).replace("y", fy)).append(")\n");
+            txt.append("x(").append(i + 1).append(")=").append(array[i - 1][0]).append("+").append(h).append("*(").append(functionA.replace("x", fx).replace("y", fy)).append(")\n");
             txt.append("x(").append(i + 1).append(")= ").append(format.format(array[i][0])).append("\n");
-            array[i][1] = array[i - 1][1] + (h * function(funcionB, array[i - 1][0], array[i - 1][1]));
-            txt.append("y(").append(i + 1).append(")=").append(array[i - 1][1]).append("+").append(h).append("*(").append(funcionB.replace("x", fx).replace("y", fy)).append(")\n");
+            array[i][1] = array[i - 1][1] + (h * function(functionB, array[i - 1][0], array[i - 1][1]));
+            txt.append("y(").append(i + 1).append(")=").append(array[i - 1][1]).append("+").append(h).append("*(").append(functionB.replace("x", fx).replace("y", fy)).append(")\n");
             txt.append("y(").append(i + 1).append(")= ").append(format.format(array[i][1])).append("\n");
             txt.append("------------------------------------------------\n");
             System.out.println(txt);
         }
         return array;
+    }
+
+    private void print(String txt) {
+        System.out.print(txt);
+    }
+
+    private void println(String txt) {
+        System.out.println(txt);
     }
 }
